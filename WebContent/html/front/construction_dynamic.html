@@ -1,0 +1,33 @@
+<div >
+ 		<div class="content_top">
+ 		<span><img class="tv" src="../../images/front/TV.png"></span>
+        <span class="content_title">课程动态</span>
+        <span class="location">当前位置：</span>
+        <span class="getlocation">课程介绍>课程动态</span>
+        <hr>
+		</div>
+ 		<div class="content_detailed">
+ 		
+ 		<table id="tab1">
+            <thead>
+            	<th>动态内容</th>
+                <th>时间</th>
+            </thead>
+            <tbody>
+ 		<tr ng-repeat="dynamic in dynamics | paging:currentPage*listsPerPage | limitTo:listsPerPage">
+           	  <td>{{dynamic.content}}</td>
+              <td>{{dynamic.time}}</td>
+          </tr>
+       		</tbody>
+        </table>
+ 		
+ 		
+ 	 	<div style="margin-top: 1%;margin-left: 75%;">
+ 	 	  <a class="step prevLink" ng-click="prevPage()">上一页</a>
+	      <span  ng-repeat="num in pageNum" ng-click="setPage(num)" ng-class="{true:'currentStep',false:'step'}[num==currentPage]">
+	    	  {{num+1}}  
+	      </span> 
+      	  <a class="step nextLink" ng-click="nextPage()">下一页</a>
+ 	 	</div>
+      </div>
+</div>

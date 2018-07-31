@@ -1,0 +1,15 @@
+<div ng-controller="problemController">
+<div class="content_top">
+        <span><img class="tv" src="../../images/front/TV.png"></span>
+        <span class="content_title">疑难解答</span>
+        <span class="location">当前位置：</span>
+        <span class="getlocation">问题与答疑>疑难解答</span>
+        <hr>
+      </div>
+      <div class="content_detailed">
+      <div ng-repeat="problem in allProblems">
+      	<div style="cursor:pointer;margin-bottom: 1%;" ng-click="show(problem.id)"><span style="margin-right: 3%;" >[{{$index+1}}]</span><span>{{problem.name}}</span></div>
+     	<div ng-if="answerId==problem.id">{{problem.content}}</div>
+      </div>
+      </div>
+</div>

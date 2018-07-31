@@ -1,0 +1,75 @@
+<div class="box">
+  <div class="box_content">
+  <span>
+  <div class="introduce">
+    <div class="intr_title">
+      <div class="icon"></div>
+      <span class="title_Chinese"><a ui-sref="construction.intro" style="color:black;">课程简介</a></span>
+      <span class="title_English">introduce</span>
+    </div>
+      <div class="intr_content">
+      <hr style="border-color:#3333;width:580px">
+               {{introduce}}
+      </div>
+  </div>
+  </span>
+  <div class="principal">
+    <div class="prin_title">
+    <div class="icon"></div>
+      <span class="title_Chinese" style="color:black;">课程负责人</span>
+      <span class="title_English">principal</span>
+    </div>
+      <div class="prin_content">
+      <hr style="border-color:#3333;width:430px">
+                {{principal}}
+      </div>
+  </div>
+  
+  <div class="dynamic">
+    <div class="dyn_title">
+    <div class="icon"></div>
+      <span class="title_Chinese"><a ui-sref="construction.dynamic" style="color:black;">课程动态</a></span>
+      <span class="title_English">dynamic state</span>
+      <span class="more">MORE</span>
+    </div>
+      <div class="dyn_content">
+      <hr style="border-color:#3333;width:580px">
+              <div ng-repeat="dynamic in dynamics">
+              <div class="dy_content_left">{{dynamic.content}} </div>   
+              <div class="dy_content_right">{{dynamic.time}}</div>
+              </div>
+      </div>
+  </div>
+  
+   <div class="resourse">
+    <div class="res_title">
+    <div class="icon"></div>
+      <span class="title_Chinese"><a ui-sref="resource.courseware" style="color:black;">教学资源</a></span>
+      <span class="title_English">resourse</span>
+    </div>
+      <div class="res_content">
+      <hr style="border-color:#3333;width:430px">
+	 <span style="cursor:pointer;" ui-sref="resource.courseware"><img  src="../../images/front/kejian.png" class="courseware"></span>
+        <span style="cursor:pointer;" ui-sref="resource.vedio"><img  src="../../images/front/shipin.png" class="courseware"></span>             
+      </div>
+  </div>
+  <div class="members">
+    <div class="mem_title">
+    <div class="icon"></div>
+      <span class="title_Chinese" style="color:black;">小组成员</span>
+      <span class="title_English">members</span>
+    </div>
+      <div class="mem_content">
+     
+        <div ng-repeat="team in  teams" style="display:inline-block"">
+        <div  style="display:inline-block;postion:relative;">
+          <div><img  ng-src="../../images/{{team.img}}" class="mem1"/></div>
+        <div style="text-align:center;">{{team.name}}</div>
+        </div>
+      
+        </div>
+ 
+      </div>
+  </div>
+  </div>
+  </div>

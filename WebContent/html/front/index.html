@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../css/front/index.css">
+<link rel="stylesheet" type="text/css" href="../../css/front/course_construction.css">
+<link rel="stylesheet" type="text/css" href="../../css/front/home.css">
+<link rel="stylesheet" type="text/css" href="../../css/front/course_dynamics.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/back/table.css" />
+
+<script src="../../css/assets/js/jquery-1.9.1.min.js"></script> 
+<script type="text/javascript" src="../../js/jquery/jquery-nav.js"></script>
+<script src="../../js/angular/angular.js"></script>
+<script src="../../js/angular/angular-ui-router.js"></script>
+<script src="../../js/front/construction.js"></script>
+<script src="../../js/front/resource.js"></script>
+<script type="text/javascript" src="../../js/front/page.js"></script>
+<script type="text/javascript" src="../../js/front/problem.js"></script>
+<script src="../../js/front/index.js"></script>
+
+</head>
+<body ng-app="myapp">
+<div class="head" style="position: relative;">
+      <img src="../../images/front/head.png" style="width: 100%;">
+      <div class="search" style="position: relative;">
+           <input class="searchBox" type="text">
+           <img src="../../images/front/searchButton.png" class="searchButton">
+      </div>
+   </div>
+   
+	<div class="box">
+	  <ul class="f-nav" id='f-nav'>
+	 
+	 <li><a ui-sref="index">首页</a></li>
+     <li><a ui-sref="construction.intro" >课程介绍</a></li>
+     <li><a href="#">教学团队</a></li>
+     <li><a href="#">课程建设</a></li>
+     <li><a ui-sref="resource.courseware">课程资源</a></li>
+     <li><a ui-sref="problem.answer">问题与答疑</a></li>
+     <li><a href="#">课程研究</a></li>
+	    </ul>
+    </div>
+     <div class="view" ui-view></div>
+    <div class="foot">
+       <div class="tfoot">重庆理工大学计算机工程学院版权所有<br>
+                               联系地址：重庆市巴南区红光大道69号  邮箱：400054  联系电话：（023）666678773
+       </div>
+    </div>
+</body>
+
+</html>

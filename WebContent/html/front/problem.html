@@ -1,0 +1,27 @@
+<div class="box" ng-controller="resourceController">
+  <div class="box_content">
+    <div class="course_introduce">
+      <span class="search">
+        <input type="text" value="请输入搜索标题" class="search_box">
+        <input type="button" value="搜索" class="search_button">
+      </span>
+      <div class="course_menu">
+         <img src="../../images/front/1.png" class="img1">
+          <div class="menu_text">
+                            问题与答疑
+          </div>
+        <div class="menu_list">
+            <ul>
+              <li ui-sref=".answer">疑难解答</li>
+              <li ui-sref=".tel">联系方式</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content_right" ui-view="">
+      
+    </div>
+  </div>
+</div>
+
+

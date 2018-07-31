@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+body{
+		margin:0;
+		padding:0;
+		}
+        .manage-head {
+            border-bottom: 1px solid #d9dfe4;
+            padding: 15px 0;
+            margin: 15px 20px;
+        }
+        
+        .manage-head-con {
+            position: relative;
+            height: 18px;
+            line-height: 18px;
+            color: #363636;
+            border-left: 2px solid #0098cd;
+            font-size: 16px;
+        }
+        
+        table {
+            border-spacing: 0;
+            width: 100%;
+        }
+        
+        #tab1 {
+            border: 1 solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 1px 1px #ccc;
+        }
+        
+        #tab1 tr {
+            transition: all 0.1s ease-in-out;
+        }
+        
+        #tab1.highlight,
+        #tab1 tr:hover {
+            background: #fbf8e9;
+        }
+        
+        #tab1 td,
+        #tab1 th {
+            border-left: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        #tab1 th {
+            background-color: #dce9f9;
+            background-image: linear-gradient(top, #ebf3fc, #dce9f9);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset;
+            border-top: none;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+        }
+        
+        #tab1 td:first-child,
+        #tab11 th:first-child {
+            border-left: none;
+        }
+        
+        #tab1 th:first-child {
+            border-radius: 6px 0 0 0;
+        }
+        
+        #tab1 th:last-child {
+            border-radius: 0 6px 0 0;
+        }
+        
+        #tab1 tr:last-child td:first-child {
+            border-radius: 0 0 0 6px;
+        }
+        
+        #tab1 tr:last-child td:last-child {
+            border-radius: 0 0 6px 0;
+        }
+        
+        #tab1 td a {
+            text-decoration: none;
+            color: #0287CD;
+        }
+        
+        .merPhoto {
+            width: 120px;
+            height: 120px;
+            background: gray;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .imgPhoto {
+            width: 100%;
+            height: 100%;
+            background: pink;
+        }
+		.btnPage{
+			width:30px;
+			height:30px;
+			background:gray;
+			}
+		a:hover, a:visited, a:link, a:active {
+    	color:white;
+		text-decoration:none;
+	}	

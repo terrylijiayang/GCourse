@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+.step {
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    border: solid 1px #aaa;
+    color: #999;
+    background: #fff;
+    padding: 0 9px;
+    font-size: 12px;
+    float: left;
+    margin: 0 0 0 5px;
+    list-style: none;
+    cursor: pointer;
+}
+.currentStep{
+    border-color: #fff;
+    padding: 0 4px;
+    color: #f90;
+    font-weight: bold;
+    float: left;
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    padding: 0 9px;
+    font-size: 12px;
+    float: left;
+    margin: 0 0 0 5px;
+    list-style: none;
+    cursor: pointer;
+}
+.box{
+	background-color: #f8f6fc;
+}
+.box_content_son{
+	width: 1062px;
+    height: 500px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.course_introduce{
+    width: 250px;
+    height: 300px;
+}
+.search{
+	    margin-left: 10px;
+}
+.search_box{
+	height: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #3333;
+}
+.search_button{
+	width: 50px;
+    height: 30px;
+    background-color: #7e7c7c;
+    color: white;
+    border: none;
+    font-size: 13px;
+}
+.course_menu{
+	
+}
+.menu_title{
+	
+}
+.img1{
+	margin-left: -12px;
+    margin-top: 20px;
+}
+.menu_text{
+	color:#ffffff;
+	margin-left: 85px;
+    margin-top: -45px;
+}
+.menu_list{
+	background-color: #e4e3e5;
+    height: 300px;
+    margin-top: -10px;
+}
+li{
+	text-align: center;
+    padding-top: 20px;
+    list-style: none;
+    margin-left: -41px;
+    width: 250px;
+    height: 15px;
+    line-height: 1px;
+    margin-bottom: 10px;
+    
+}
+li:hover{
+	background:#a13130;
+	color:#ffffff;
+	cursor: pointer;
+}
+.content_right{
+	margin-left: 25%;
+    margin-top: -26%;
+}
+
+.content_top{
+	
+}
+.tv{
+	width: 20px;
+}
+.content_title{
+	color: #a13130;
+    font-size: 18px;
+}
+.location{
+	margin-left: 350px;
+    font-size: 14px;
+}
+.getlocation{
+	font-size: 14px;
+}
+.content_detailed{
+    width: 760px;
+    height: 400px;
+}
+.content_detailed_resourse{
+	    height: 380px;
+}
+.img_Url{
+	position: relative;
+    top: 26px;
+    left: -16%;
+}
+.img_url{
+	position: relative;
+    top: 26px;
+    left: -16%;
+	
+}
+

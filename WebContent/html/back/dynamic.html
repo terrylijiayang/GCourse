@@ -1,0 +1,131 @@
+<div ng-controller="dynamicController" style="margin-left: 3%">
+	<div class="account-product margin-big-top clearfix">
+	<div>
+		<h6 class="manage-head-con">课程动态</h6>
+	</div>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#dy_Add" >增加</button>
+			<table id="tab1">
+						<thead>
+						    <tr>
+							     <td>动态内容</td>
+							     <td>动态时间</td>
+							     <td>操作人</td>
+							     <td>操作 </td>
+							</tr>
+						</thead>
+			<tbody>
+			   	<tr ng-repeat="x in dynamics">
+							     <td>{{x.content}}</td>
+							     <td>{{x.time}}</td>
+							     <td>{{x.operate}}</td>
+					<td>
+						<button class="btn  btn-warning" ng-click="delete_dy(x.id)">删除</button><!-- getRow(x.id) -->
+						 <button  class="btn btn-primary" data-toggle="modal" data-target="#dy_edit"   ng-click="edit(x.id)">编辑</button>
+						<button  class="btn btn-success" data-toggle="modal" data-target="#myModal2" ng-click="data_row(x.id)">查看</button>
+					</td>
+				</tr>
+		</tbody>
+	</table>
+	<div class="modal fade" id="dy_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									
+								</h4>
+							</div>
+							<!-- <div class="modal-body">
+				                    <h4>课程动态</h4>
+				                    <input type="text" ng-model="dy_Econtent" name="course_data">                 
+				            </div> -->
+				            
+				             <div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%; top:-136px">课程动态</label> 
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="dy_Econtent"  style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;" ></textarea>
+			           		 </div>
+				            
+				            <!-- <div class="modal-body">
+				                    <h4>更新时间</h4>
+				                    <input type="text" ng-model="dy_Etime" name="course_person">                 
+				            </div> -->
+				            <!--  --> 
+				            <input type="text" ng-model="h_id" style="display:none;">
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" ng-click="change()" class="btn btn-primary">
+									提交更改
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+			
+	<!--//增加-->
+			<div class="modal fade" id="dy_Add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									
+								</h4>
+							</div>
+							<!-- <div class="modal-body">
+				                    <h4>课程动态</h4>
+				                    <input type="text" ng-model="adddy" >               
+				            </div> -->
+				             <div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%; top:-136px" >课程动态</label> 
+								
+			           		 		<textarea  clos="50" rows="5" warp="virvirtual" ng-model="adddy"  style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;" ></textarea>
+			           		 </div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" ng-click="dy_add()" class="btn btn-primary">
+									提交更改
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+		
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									
+								</h4>
+							</div>
+							<!-- <div class="modal-body">
+				                    <h4>课程动态</h4>
+				                    <input type="text" ng-model="add_content1" name="course_data">                 
+				            </div> -->
+				            
+				            
+				            
+				            <div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%;top:-136px">课程动态</label> 
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="add_content1"  style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;" readonly="readonly" ></textarea>
+			           		 </div>
+				            
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+	</div>
+		
+</div>

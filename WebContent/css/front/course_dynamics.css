@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+.page{
+    margin-left: 14%;
+    margin-top: 20%;
+}
+.page_box{
+	margin:0 auto;
+}
+.page>div{
+    float: left;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.pageItem{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+}
+.pageItemActive{
+    border: solid thin #a13130;
+    margin: 5px;
+    background-color: #a13130;
+    color:white;
+}
+.pageItem:hover{
+    border: solid thin #a13130;
+    background-color: #a13130;
+    color:white;
+}
+.pageItemDisable{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #DDDDDD;
+}
+.content{
+	padding:10px 10px;
+}

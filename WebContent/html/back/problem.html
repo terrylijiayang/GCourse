@@ -1,0 +1,70 @@
+<div style="margin-left: 3%" ng-controller="problemController">
+	<div>
+		<h6 class="manage-head-con">问题管理</h6>
+		<button type="button" id="btn_add" class="btn  btn-primary"
+			data-toggle="modal" data-target="#myModal" ng-click="addProblem()">新增问题</button>
+	</div>
+	<table id="tab1">
+		<thead>
+			<th>编号</th>
+			<th>问题</th>
+			<th>解答</th>
+			<th>操作人</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="problem in allProblems">
+				<td>{{$index+1}}</td>
+				<td>{{problem.name}}</td>
+				<td>{{problem.content}}</td>
+				<td>{{problem.operatorName}}</td>
+				<td>
+					<button type="submit" class="btn btn-primary"
+						ng-click="editProblem(problem.id)" data-toggle="modal"
+						data-target="#myModal">
+						<a href="" style="color: white;">编辑问题</a>
+					</button>
+					<button type="submit" class="btn btn-warning"
+						ng-click="delProblem(problem.id)">
+						<span>删除问题</span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+<!--新增用户-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel"
+					style="position: relative; top: 11px !important; left: 0% !important";>问题管理</h4>
+			</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="txt_departmentname" style="vertical-align: top;">问题</label> <textarea ng-model="problem_question"
+							style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 38%;" ></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="txt_departmentname"style="vertical-align: top;">解答</label> <textarea ng-model="problem_answer"
+							style="width: 33%; height: 100px; font-size: 17px; font-family: 宋体; margin-left: 38%;" ></textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+					</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendProblem()">确认</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>

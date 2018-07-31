@@ -1,0 +1,92 @@
+<div style="margin-left: 3%">
+<div>
+		<h6 class="manage-head-con">文章管理</h6>
+	</div>
+	<table id="tab1">
+			<thead>
+			    <td width="550px">文章标题</td>
+				<td>作者</td>
+			    <td>栏目标题</td>
+				<td>创建日期</td>
+				<td>是否顶置 </td>
+				<td>操作 </td>  
+			</thead>
+		<tbody>
+			    <tr ng-repeat="x in courses">
+				         <td>{{x.intro}}</td>
+					     <td>{{x.principal}}</td>
+					     <td>课程信息</td>
+					     <td>2018年</td>
+					     <td>是</td>
+					<td>
+						 <button  class="btn btn-primary" data-toggle="modal" data-target="#Co_edit" ng-click=getCoRow(x.id)>编辑</button>
+						<button  class="btn btn-success" data-toggle="modal" data-target="#Co_display" ng-click=data_Corow(x.id)>查看</button>
+					</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+<div class="modal fade" id="Co_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								
+							</h4>
+						</div>
+						<div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%;top: -137px;">课&nbsp程&nbsp信&nbsp息</label> 
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="edit_c_info"  style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;"></textarea>
+			            </div>
+			            <div class="modal-body">
+			            		<label for="txt_departmentname" style="position: relative;left: 26%;top: -136px;">课程负责人</label> 
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="edit_c_charge"   style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;"></textarea>
+			            </div>
+			             
+			            <input type="text" ng-model="h_id" style="display:none;">
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" ng-click="Co_change()" class="btn btn-primary">
+								提交更改
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<div class="modal fade" id="Co_display" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								
+							</h4>
+						</div>
+			            <div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%;top:-136px">课&nbsp程&nbsp信&nbsp息</label> 
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="Co_dis_info"   style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;" readonly="readonly"></textarea>
+			            </div>
+			            <div class="modal-body">
+			            		<label for="txt_departmentname" style="position: relative;left: 26%;top:-136px">课程负责人</label>  
+								<textarea  clos="50" rows="5" warp="virvirtual" ng-model="Co_dis_charge"   style="width: 33%; height: 154px; font-size: 17px; font-family: 宋体; margin-left: 30%;" readonly="readonly"></textarea>
+			            </div>
+			            
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+
+</div>

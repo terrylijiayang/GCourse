@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理系统</title>
+		<script src="../../js/jquery/2.2.1/jquery.min.js"></script>
+		<script src="../../css/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/back/jquery-1.7.2.min.js"></script>
+		<script src="../../js/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../../js/back/haidao.offcial.general.js"></script>
+		<script src="../../js/angular/angular-ui-router.js"></script>
+		<script type="text/javascript" src="../../js/back/model.js"></script>
+		<script type="text/javascript" src="../../js/back/pmanage.js"></script>
+		<script type="text/javascript" src="../../js/back/problem.js"></script>
+		<script type="text/javascript" src="../../js/back/index.js"></script>
+		<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="../../css/back/table.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/identify.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/limit.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/control_index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap.min.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="../../css/font/font-awesome.min.css"> -->
+				
+	</head>
+	<style>
+    h4{
+        position: relative;
+        top: 34px;
+        left: 20%;
+    }
+    input{
+        position: relative;
+         left: 38%;
+         border: 1px solid;
+    }
+	</style>
+	<body ng-app="myApp" ng-controller="blackController">
+		<div class="view-topbar">
+			<div class="topbar-console">
+				<div class="tobar-head fl">
+					<a href="#" class="topbar-logo fl">
+					<span><img src="../../images/back/logo.png" width="20" height="20"/></span>
+					</a>
+					<a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>网站后台管理系统</span></a>
+				</div>
+			</div>
+			<div class="topbar-info">
+				<ul class="fr">
+					<li class="fl topbar-info-item">
+					<div class="dropdown">
+						<a href="#" class="topbar-btn">
+						<span class="fl text-normal">{{username}}</span>
+						<span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="login.html">退出</a></li>
+						</ul>
+					</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="view-body">
+			<div class="view-sidebar">
+				<div class="sidebar-content">
+					<div class="sidebar-nav">
+						<div class="sidebar-title">
+							<a href="#">
+								<span class="icon"><b class="fl icon-arrow-down"></b></span>
+								<span class="text-normal">网站内容管理</span>
+							</a>
+						</div>
+						<ul class="sidebar-trans">
+							<li  ng-repeat="model in models" ng-if="model.type==1">
+								<a ui-sref="{{model.sref}}">
+									<b class="sidebar-icon"><img ng-src="../../images/{{model.img}}" width="16" height="16" /></b>
+									<span class="text-normal">{{model.name}}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sidebar-nav">
+						<div class="sidebar-title">
+							<a href="#">
+								<span class="icon"><b class="fl icon-arrow-down"></b></span>
+								<span class="text-normal">系统设置</span>
+							</a>
+						</div>
+						<ul class="sidebar-trans" >
+							<li ng-repeat="model in models" ng-if="model.type==2">
+								<a ui-sref="{{model.sref}}">
+									<b class="sidebar-icon"><img ng-src="../../images/{{model.img}}" width="16" height="16" /></b>
+									<span class="text-normal">{{model.name}}</span>
+								</a>
+							</li>
+							<!-- <li>
+								<a href="#">
+									<b class="sidebar-icon"><img src="../../images/back/icon_authentication.png" width="16" height="16" /></b>
+									<span class="text-normal">人员管理</span>
+								</a>
+							</li> -->
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+				<div class="view-product background-color"  ui-view="">
+					
+				</div>
+			</div>
+			
+		
+		<script>
+			$(".sidebar-title").live('click', function() {
+				if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+					$(this).next().slideDown(200);
+					$(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+				} else {
+					$(this).next().slideUp(200);
+					$(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+				}
+			});
+		</script>
+	</body>
+
+</html>

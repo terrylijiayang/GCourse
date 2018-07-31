@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>课程动态</title>
+        <meta name="keywords" content="" /> 
+        <meta name="description" content="" /> 
+		
+	<!-- 	<script type="text/javascript" src="../../js/back/haidao.validate.js"></script> -->
+		<link rel="stylesheet" type="text/css" href="../../css/back/identify.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/back/control_index.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../js/back/jquery-1.7.2.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+		<script type="text/javascript" src="../../js/back/haidao.offcial.general.js"></script>
+		<script src="../../js/angular/angular-ui-router.js"></script>
+		<script type="text/javascript" src="../../js/back/sourse.js"></script>
+				
+	</head>
+	<style>
+    h4{
+        position: relative;
+        top: 34px;
+        left: 20%;
+    }
+    input{
+        position: relative;
+         left: 38%;
+         border: 1px solid;
+    }
+	</style>
+	<body ng-app="Myapp_s" ng-controller="sourseController">
+		<div class="view-topbar">
+			<div class="topbar-console">
+				<div class="tobar-head fl">
+					<a href="#" class="topbar-logo fl">
+					<span><img src="../../images/back/logo.png" width="20" height="20"/></span>
+					</a>
+					<a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>网站后台管理系统</span></a>
+				</div>
+			</div>
+			<div class="topbar-info">
+				<ul class="fr">
+					<li class="fl dropdown topbar-notice topbar-btn">
+					<a href="#" class="dropdown-toggle">
+					<span class="icon-notice"></span>
+					<span class="topbar-num have">0</span>
+					</a>
+					</li>
+					<li class="fl topbar-info-item">
+					<div class="dropdown">
+						<a href="#" class="topbar-btn">
+						<span class="fl text-normal">帮助与文档</span>
+						<span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">模板开发手册</a></li>
+							<li><a href="#">某某数据字典</a></li>
+						</ul>
+					</div>
+					</li>
+					<li class="fl topbar-info-item">
+					<div class="dropdown">
+						<a href="#" class="topbar-btn">
+						<span class="fl text-normal">系统管理员</span>
+						<span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="login.html">退出</a></li>
+						</ul>
+					</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="view-body">
+			<div class="view-sidebar">
+				<div class="sidebar-content">
+					<div class="sidebar-nav">
+						<div class="sidebar-title">
+							<a href="#">
+								<span class="icon"><b class="fl icon-arrow-down"></b></span>
+								<span class="text-normal">网站内容管理</span>
+							</a>
+						</div>
+						<ul class="sidebar-trans">
+							<li>
+								<a href="index.html">
+									<b class="sidebar-icon"><img src="../../images/back/icon_author.png" width="16" height="16" /></b>
+									<span class="text-normal">文章管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="Dynamic.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_message.png" width="16" height="16" /></b>
+									<span class="text-normal">留言管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="Sourse.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_message.png" width="16" height="16" /></b>
+									<span class="text-normal">审核文章</span>
+								</a>
+							</li>
+							<li>
+								<a href="team.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_message.png" width="16" height="16" /></b>
+									<span class="text-normal">栏位管理</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sidebar-nav">
+						<div class="sidebar-title">
+							<a href="#">
+								<span class="icon"><b class="fl icon-arrow-down"></b></span>
+								<span class="text-normal">系统设置</span>
+							</a>
+						</div>
+						<ul class="sidebar-trans">
+							<li>
+								<a href="userInfo.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_cost.png" width="16" height="16" /></b>
+									<span class="text-normal">权限管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="identify.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_authentication.png" width="16" height="16" /></b>
+									<span class="text-normal">模块管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="message.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_news.png" width="16" height="16" /></b>
+									<span class="text-normal">角色分配</span>
+								</a>
+							</li>
+							<li>
+								<a href="money.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_gold.png" width="16" height="16" /></b>
+									<span class="text-normal">人员管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="order.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_order.png" width="16" height="16" /></b>
+									<span class="text-normal">角色管理</span>
+								</a>
+							</li>
+							<li>
+								<a href="order.html">
+									<b class="sidebar-icon"><img src="../../images/back//icon_order.png" width="16" height="16" /></b>
+									<span class="text-normal">默认功能设置</span>
+								</a>
+							</li>
+							<li>
+								<a href="order.html">
+									<b class="sidebar-icon"><img src="../../images/back/icon_order.png" width="16" height="16" /></b>
+									<span class="text-normal">首页信息设置</span>
+								</a>
+							</li>
+							<li>
+								<a href="order.html">
+									<b class="sidebar-icon"><img src="../../images/back/icon_order.png" width="16" height="16" /></b>
+									<span class="text-normal">码表管理</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="view-product background-color"  >
+					<div class="account-product margin-big-top clearfix">
+						<div class="text-box-main padding-big fl mine-product">
+							<h1 class="h6 margin-big-bottom">课程动态</h1>
+							<div class="mine-product-content clearfix">
+								<button data-toggle="modal" data-target="#myModal1">增加</button>
+								  <table class="table" >
+							          <tr >
+							              <td>选课人头像</td>
+							              <td>姓名</td>
+							              <td>栏目标题</td>
+							              <td>是否顶置 </td>
+							              <td>操作 </td>
+							          </tr>
+							          <tr ng-repeat="x in names">
+							            <td>{{x.img}}</td>
+							            <td>{{x.name}}</td>
+							            <td>选客人信息</td>
+							            <td>是</td>
+							            <td><button ng-click="delete_sour(x.id)">删除</button>		
+							            <button  data-toggle="modal" data-target="#myModal" ng-click=getRow(x.id)>编辑</button>
+										<button data-toggle="modal" data-target="#myModal2" ng-click=data_row(x.id)>查看</button></td>
+							          </tr>
+							      </table>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			//修改
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								
+							</h4>
+						</div>
+						<div class="modal-body">
+			                    <h4>课程动态</h4>
+			                    <input type="text" ng-model="dy_content" name="course_data">                 
+			            </div>
+			            <div class="modal-body">
+			                    <h4>更新时间</h4>
+			                    <input type="text" ng-model="dy_time" name="course_person">                 
+			            </div>
+			            <!--  --> 
+			            <input type="text" ng-model="h_id" style="display:none;">
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" ng-click="change()" class="btn btn-primary">
+								提交更改
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		
+		//增加	
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								
+							</h4>
+						</div>
+						<div class="modal-body">
+			                    <h4>课程动态</h4>
+			                    <input type="text" ng-model="add_content2" name="course_data">                 
+			            </div>
+			            <div class="modal-body">
+			                    <h4>更新时间</h4>
+			                    <input type="text" ng-model="add_time2" name="course_person">                 
+			            </div>
+			            
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" ng-click="add_data()" class="btn btn-primary">
+								提交更改
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		
+		//查看
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								
+							</h4>
+						</div>
+						<div class="modal-body">
+			                    <h4>课程动态</h4>
+			                    <input type="text" ng-model="add_content1" name="course_data">                 
+			            </div>
+			            <div class="modal-body">
+			                    <h4>更新时间</h4>
+			                    <input type="text" ng-model="add_time1" name="course_person">                 
+			            </div>
+			            
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		
+		<script>
+			$(".sidebar-title").live('click', function() {
+				if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+					$(this).next().slideDown(200);
+					$(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+				} else {
+					$(this).next().slideUp(200);
+					$(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+				}
+			});
+		</script>
+	</body>
+
+</html>

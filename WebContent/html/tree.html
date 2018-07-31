@@ -1,0 +1,272 @@
+<html ng-app="com.ngbook.demo" class="ng-scope">
+<head>
+    <meta name="description" content="ng trrview example">
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery/jquery.min.js"></script>
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8">
+    <title>JS Bin</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <style id="jsbin-css">
+        ul{
+            list-style: none;
+        }
+        .text-field{
+            cursor: pointer;
+        }
+        .check-box{
+            width: 24px;
+            height: 18px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="DemoController as demo" class="container">
+
+
+    <div class="row">
+        <h2>Tree view</h2>
+        <tree-view tree-data="demo.tree" text-field="name" value-field='id'
+                   item-clicked="demo.itemClicked($item)" item-checked-changed="demo.itemCheckedChanged($item)" can-checked="true" ></tree-view>
+    </div>
+
+   <div class="row">
+        <h2>Item selected</h2>
+        <pre>{{demo.selectedItem | json}}</pre>
+    </div>
+    <script type="text/ng-template" id="/treeView.html">
+        <ul class="tree-view">
+            <li ng-repeat="item in treeData" ng-include="itemTemplateUrl || '/treeItem.html'" ></li>
+        </ul>
+    </script>
+    <script type="text/ng-template" id="/treeItem.html">
+        <i ng-click="itemExpended(item, $event);" class="{{getItemIcon(item)}}"></i>
+
+        <input id="{{item.id}},{{item.pid}}"  type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked">
+
+
+        <span class='text-field' ng-click="warpCallback('itemClicked', item, $event);" >{{item[textField]}}</span>
+        <ul ng-if="!isLeaf(item)"
+            ng-show="item.$$isExpend">
+            <li ng-repeat="item in item.children" ng-include="itemTemplateUrl || '/treeItem.html'">
+            </li>
+        </ul>
+    </script>
+
+</div>
+<script>
+try     {angular.module("com.ngbook.demo", [])
+        .controller("DemoController", ['$http',function($http){
+            var vm = this;
+            vm.tree = [
+                {
+                    "id":"1",
+                    "pid":"0",
+                    "name":"家用电器",
+                    "children":[
+                        {
+                            "id":"4",
+                            "pid":"1",
+                            "name":"大家电",
+                            "children":[
+                                {
+                                    "id":"7",
+                                    "pid":"4",
+                                    "name":"空调",
+                                    "children":[
+                                        {
+                                            "id":"15",
+                                            "pid":"7",
+                                            "name":"海尔空调"
+                                        },
+                                        {
+                                            "id":"16",
+                                            "pid":"7",
+                                            "name":"美的空调"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id":"8",
+                                    "pid":"4",
+                                    "name":"冰箱"
+                                },
+                                {
+                                    "id":"9",
+                                    "pid":"4",
+                                    "name":"洗衣机"
+                                },
+                                {
+                                    "id":"10",
+                                    "pid":"4",
+                                    "name":"热水器"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"5",
+                            "pid":"1",
+                            "name":"生活电器",
+                            "children":[
+                                {
+                                    "id":"19",
+                                    "pid":"5",
+                                    "name":"加湿器"
+                                },
+                                {
+                                    "id":"20",
+                                    "pid":"5",
+                                    "name":"电熨斗"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id":"2",
+                    "pid":"0",
+                    "name":"服饰",
+                    "children":[
+                        {
+                            "id":"13",
+                            "pid":"2",
+                            "name":"男装"
+                        },
+                        {
+                            "id":"14",
+                            "pid":"2",
+                            "name":"女装"
+                        }
+                    ]
+                },
+                {
+                    "id":"3",
+                    "pid":"0",
+                    "name":"化妆",
+                    "children":[
+                        {
+                            "id":"11",
+                            "pid":"3",
+                            "name":"面部护理"
+                        },
+                        {
+                            "id":"12",
+                            "pid":"3",
+                            "name":"口腔护理"
+                        }
+                    ]
+                }
+            ];
+
+
+        }])
+        .directive('treeView',[function(){
+
+            return {
+                restrict: 'E',
+                templateUrl: '/treeView.html',
+                scope: {
+                    treeData: '=',
+                    canChecked: '=',
+                    textField: '@',
+                    itemClicked: '&',
+                    itemCheckedChanged: '&',
+                    itemTemplateUrl: '@'
+                },
+                controller:['$scope', function($scope){
+                    $scope.itemExpended = function(item, $event){
+                        item.$$isExpend = ! item.$$isExpend;
+                        $event.stopPropagation();
+                    };
+
+                    $scope.getItemIcon = function(item){
+                        var isLeaf = $scope.isLeaf(item);
+
+                        if(isLeaf){
+                            return 'fa fa-leaf';
+                        }
+
+                        return item.$$isExpend ? 'fa fa-minus': 'fa fa-plus';
+                    };
+
+                    $scope.isLeaf = function(item){
+                        return !item.children || !item.children.length;
+                    };
+
+                    $scope.chk = function(callback , item){
+                        var itemId = item.id;
+
+                    };
+
+                    $scope.warpCallback = function(callback, item, $event){
+                        ($scope[callback] || angular.noop)({
+                            $item:item,
+                            $event:$event
+                        });
+                    };
+                }]
+            };
+        }]);
+} catch (error) { throw error; }
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script  type="text/javascript">
+    // Apparently click is better chan change? Cuz IE?
+   $(function(){
+       // Apparently click is better chan change? Cuz IE?
+       $('input[type="checkbox"]').change(function() {
+
+           var checked = $(this).prop("checked"),
+                   container = $(this).parent(),
+                   siblings = container.siblings();
+
+           container.find('input[type="checkbox"]').prop({
+               indeterminate: false,
+               checked: checked
+           });
+
+           function checkSiblings(el) {
+
+               var parent = el.parent().parent(),
+                       all = true;
+
+               el.siblings().each(function() {
+                   return all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
+               });
+
+               if (all && checked) {
+
+                   parent.children('input[type="checkbox"]').prop({
+                       indeterminate: false,
+                       checked: checked
+                   });
+
+                   checkSiblings(parent);
+
+               } else if (all && !checked) {
+
+                   parent.children('input[type="checkbox"]').prop("checked", checked);
+                   parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+                   checkSiblings(parent);
+
+               } else {
+
+                   el.parents("li").children('input[type="checkbox"]').prop({
+                       indeterminate: true,
+                       checked: false
+                   });
+
+               }
+
+           }
+
+           checkSiblings(container);
+       });
+   });
+
+</script>
+
+
+</body>

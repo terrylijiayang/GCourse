@@ -1,0 +1,61 @@
+<div style="margin-left:3%">
+<div>
+<h6 class="manage-head-con">模块管理</h6>
+ <button type="button" id="btn_add" class="btn  btn-primary" ng-click="addRole()" data-toggle="modal" data-target="#myModal">新增角色</button>
+</div>
+  <table id="tab1">
+            <thead>
+            	<th>序号</th>
+                <th>角色</th>
+                <th>模块</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+ 		<tr ng-repeat="role in roles">
+           	  <td>{{$index+1}}</td>
+              <td>{{role.role}}</td>
+              <td><span ng-repeat="model in role.models">{{model.name}};</span></td>
+              <td>
+              <button type="submit" class="btn btn-primary" ng-click="eidtRole(role.id)" data-toggle="modal" data-target="#myModal"><a href="" style="color:white;">修改模块</a> </button>
+               <button type="submit" class="btn btn-warning"ng-click="delRole(role.id)"><span >删除角色</span></button> </td>
+          </tr>
+       		</tbody>
+        </table>
+        
+<!-- 角色操作 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="    position: relative;
+    top: 11px!important;
+    left: 0%!important";>角色模块</h4>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+   					<div class="form-group">
+                        <label for="txt_departmentname">角色名</label>
+                        <input type="text" ng-model="roleName" style="width: 33%;height: 30px;font-size: 17px;margin-left: 4%;font-family: 宋体;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_departmentname">选择模块</label>
+                      <!-- <select ng-init="selectedName = models[0]" ng-model="selectedModel" ng-options="x for x in models"
+                      style="width: 33%;height: 31px;margin-left: 38%;"></select> -->
+                      <section>
+       <pre>{{choseArr}}</pre>
+      全选: <input type="checkbox" ng-model="master" ng-click="all(master,tesarry)" style="left:0!important;'">
+       <span ng-repeat="z in tesarry">
+           <input id={{z}} type="checkbox"  ng-model="x" ng-checked="master" ng-click="chk(z,x)" style="left:0!important;'">{{z}};
+       </span>
+       <div href="#" class="btn btn-danger" ng-click="delete1()" > 删除</div>
+   </section>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+					<button type="submit" class="btn btn-primary" ng-click="submitModel();" data-dismiss="modal">确认</button>
+                </div>
+           		</form>
+            </div>
+        </div>
+</div>

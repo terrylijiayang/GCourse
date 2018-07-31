@@ -1,0 +1,32 @@
+<div class="box" ng-controller="introController">
+  <div class="box_content_son">
+    <div class="course_introduce">
+      <span class="search">
+        <input type="text" value="请输入搜索标题" class="search_box">
+        <input type="button" value="搜索" class="search_button">
+      </span>
+      <div class="course_menu">
+         <img src="../../images/front/1.png" class="img1">
+          <div class="menu_text">
+                            课程介绍
+          </div>
+        <div class="menu_list">
+            <ul>
+              <li ui-sref=".intro">课程简介</li>
+              <li>教学方法</li>
+              <li>课程安排</li>
+              <li>课程大纲</li>
+              <li>课程理念与目标</li>
+              <li ui-sref=".dynamic">课程动态</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content_right" ui-view="">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

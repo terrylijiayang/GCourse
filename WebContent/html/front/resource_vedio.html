@@ -1,0 +1,15 @@
+<div>
+<div class="content_top">
+        <span><img class="tv" src="../../images/front/TV.png"></span>
+        <span class="content_title">教学视频</span>
+        <span class="location">当前位置：</span>
+        <span class="getlocation">课程介绍>教学视频</span>
+        <hr>
+      </div>
+      <div class="content_detailed">
+       <span ng-repeat="source in  sources">
+       		<img  ng-src="{{source.img}}" class="courseware">
+       		<span class="img_Url">{{source.name}}</span>
+       	</span>   
+      </div>
+</div>

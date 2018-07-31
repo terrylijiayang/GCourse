@@ -1,0 +1,132 @@
+<div style="margin-left: 3%" ng-controller="personController">
+	<div>
+		<h6 class="manage-head-con">人员管理</h6>
+		<button type="button" id="btn_add" class="btn  btn-primary"
+			data-toggle="modal" data-target="#myModal">新增用户</button>
+	</div>
+	<table id="tab1">
+		<thead>
+			<th>编号</th>
+			<th>操作人</th>
+			<th>登录账号</th>
+			<th>角色</th>
+			<th>模块</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in allUsers">
+				<td>{{$index+1}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.user}}</td>
+				<td>{{user.role.role}}</td>
+				<td><span ng-repeat="model in user.role.models">{{model.name}};</span></td>
+				<td>
+					<button type="submit" class="btn btn-primary"
+						ng-click="editOperator(user.id)" data-toggle="modal"
+						data-target="#myEditModal">
+						<a href="" style="color: white;">修改用户</a>
+					</button>
+					<button type="submit" class="btn btn-warning"
+						ng-click="delOperator(user.id)">
+						<span>删除用户</span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+<!--新增用户-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel"
+					style="position: relative; top: 11px !important; left: 0% !important";>新增用户</h4>
+			</div>
+			<form method="post" action="AddTeacherServelet">
+				<div class="modal-body">
+					<div class="form-group">
+						<!-- <label for="txt_departmentname">姓名</label>
+                        <input type="text" name="id" class="form-control" id="txt_departmentname" placeholder="id"> -->
+						<label for="txt_departmentname">姓名</label> <input type="text" ng-model="pmanage_name"
+							style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 38%;" />
+					</div>
+					<div class="form-group">
+						<label for="txt_departmentname">登录账号</label> <input type="text" ng-model="pmanage_username"
+							style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 33%;" />
+					</div>
+					<div class="form-group">
+						<label for="txt_parentdepartment">密码</label> <input type="password" ng-model="pmanage_pass"
+							style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 38%;" />
+					</div>
+					<div class="form-group">
+						<label for="txt_departmentlevel">确认密码</label> <input type="password" ng-model="pmanage_repass"
+							style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 33%;" />
+					</div>
+					<div class="form-group">
+						<label for="txt_departmentlevel">选择角色</label> <select
+							ng-init="selectedName = names[0]" ng-model="selectedName"
+							ng-options="x for x in names"
+							style="width: 33%; height: 31px; margin-left: 33%;"></select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+					</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addOperator()">新增</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--编辑用户  -->
+<div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" 
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel"
+					style="position: relative; top: 11px !important; left: 0% !important";>编辑用户</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<!-- <label for="txt_departmentname">姓名</label>
+                        <input type="text" name="id" class="form-control" id="txt_departmentname" placeholder="id"> -->
+					<label for="txt_departmentname">姓名</label> <input type="text"
+						ng-model="operatorName"
+						style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 38%;" />
+				</div>
+				<div class="form-group">
+					<label for="txt_departmentname">登录名</label> <input type="text"
+						ng-model="operatorUsername"
+						style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 35.5%;" />
+				</div>
+				<div class="form-group">
+					<label for="txt_departmentlevel">选择角色</label> <select
+						ng-init="selectedName = names[0]" ng-model="selectedName"
+						ng-options="x for x in names"
+						style="width: 33%; height: 31px; margin-left: 33%;"></select>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+				</button>
+				<button type="button" id="btn_submit" class="btn btn-primary" ng-click="edit()">确定</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

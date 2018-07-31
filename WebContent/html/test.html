@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>18.3 $http(1)</title>
+  <meta charset="utf-8">
+  <script src="../js/angular/angular.js"></script>
+  <script src="demo.js"></script>
+  <style type="text/css">
+    *{
+      font-family:'MICROSOFT YAHEI';
+      font-size:12px
+    }
+  </style>
+</head>
+<body ng-app="myApp">
+<div id="left-menu" ng-controller="Left-navigation" class="col-sm-2" style="margin-top: 50px">
+  <ul>
+ 
+    <!-- 仪表盘 -->
+    <li>
+  <!-- 让每一个一级菜单绑定一个函数navFunc，并且传入一个指定的字符串 -->
+      <a href="" ng-click="navFunc('dashboard')">仪表盘</a>
+    </li>
+ 
+    <!-- 主机 -->
+    <li>
+      <span><a ng-click="navFunc('hosts')" href="">主机</a></span>
+      <!-- 如果要显示二级菜单，则navAction必须等于制定的字符串，这个是自己定义的，navAction是在controller中创建的 -->
+  <ul ng-show="navAction === 'hosts'">
+        <li><a href="">主机</a></li>
+        <li><a href="">分组</a></li>
+      </ul>
+    </li>
+ 
+    <!-- 容器 -->
+    <li>
+      <a href="" ng-click="navFunc('container')">容器</a>
+    </li>
+ 
+    <!-- 模板 -->
+    <li>
+      <span><a href="" ng-click="navFunc('template')">模板</a></span>
+      <ul ng-show="navAction === 'template'">
+        <li><a href="">监控</a></li>
+        <li><a href="">装机</a></li>
+      </ul>
+    </li>
+ 
+    <!-- 用户 -->
+    <li>
+      <span><a href="" ng-click="navFunc('users')">用户</a></span>
+      <ul ng-show="navAction === 'users'">
+        <li><a href="">修改资料</a></li>
+        <li><a href="">修改密码</a></li>
+        <li><a href="">添加用户</a></li>
+        <li><a href="">消息</a></li>
+      </ul>
+    </li>
+ 
+    <!-- 配置 -->
+    <li>
+      <a href="" ng-click="navFunc('configuration')">配置</a>
+    </li>
+ 
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<div>
+<div class="content_top">
+        <span><img class="tv" src="../../images/front/TV.png"></span>
+        <span class="content_title">教学课件</span>
+        <span class="location">当前位置：</span>
+        <span class="getlocation">课程介绍>教学课件</span>
+        <hr>
+      </div>
+      <div class="content_detailed_resourse">
+       <span ng-repeat="source in  sources">
+       		<img  ng-src="../../images/front/{{source.img}}" class="courseware">
+       		<span class="img_url">{{source.name}}</span>
+       	</span>   
+      </div>
+</div>
+
+<!-- <script type="text/javascript">
+   
+var datas=[
+    {"did":1,"src":"../../images/front/res.png","name":"123"},
+    {"did":2,"src":"../../images/front/res.png","name":"课程资源"},
+    {"did":3,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":4,"src":"../../images/front/res.png","name":"教学课件"},
+    {"did":5,"src":"../../images/front/res.png","name":"教学资源"},
+    {"did":6,"src":"../../images/front/res.png","name":"教学视频"},
+    {"did":7,"src":"../../images/front/res.png","name":"数据结构"},
+    {"did":8,"src":"../../images/front/res.png","name":"数据结构"},
+    {"did":9,"src":"../../images/front/res.png","name":"教学资源"},
+    {"did":10,"src":"../../images/front/res.png","name":"课程资源"},
+    {"did":11,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":12,"src":"../../images/front/res.png","name":"教学课件"},
+    {"did":13,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":14,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":15,"src":"../../images/front/res.png","name":"教学课件"},
+    {"did":16,"src":"../../images/front/res.png","name":"教学资源"},
+    {"did":17,"src":"../../images/front/res.png","name":"教学资源"},
+    {"did":18,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":19,"src":"../../images/front/res.png","name":"课程视频"},
+    {"did":20,"src":"../../images/front/res.png","name":"教学资源"},
+    {"did":21,"src":"../../images/front/res.png","name":"教学资源" }
+];
+var options={
+	"id":"page",//显示页码的元素
+	"data":datas,//显示数据
+    "maxshowpageitem":3,//最多显示的页码个数
+    "pagelistcount":2,//每页显示数据个数
+    "callBack":function(result){
+    	     var cHtml="";
+        for(var i=0;i<result.length;i++){
+        	if(i%2==0){
+        		 cHtml+="<div id='res_img' style = 'margin-left: 20px;'><img src="+ result[i].src+"><br/><span>"+result[i].name+"</span></div>";//处理数据
+        	}
+        	else{
+        		 cHtml+="<div  id='res_img' style = 'margin-left: 200px; margin-top: -115.8px;'><img src="+ result[i].src+"><br/><span>"+result[i].name+"</span></div>";//处理数据
+        	}
+        }
+        $("#demoContent").html(cHtml);//将数据增加到页面中
+    }
+};
+   page.init(datas.length,1,options);
+   
+</script> -->

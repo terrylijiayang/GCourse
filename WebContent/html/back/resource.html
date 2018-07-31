@@ -1,0 +1,171 @@
+<div ng-controller="resourseController" style="margin-left: 3%">
+		<div class="account-product margin-big-top clearfix">
+						
+		<div>
+		<h6 class="manage-head-con">课程资源</h6>
+	</div>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#reso_Add" >增加</button>
+			<table id="tab1">
+						<thead>
+						    <tr>
+							    <td>资源图片</td>
+							    <td>资源名称</td>
+							    <td>操作人</td>
+							    <td>操作 </td>
+							</tr>
+						</thead>
+			<tbody>
+			   	  <tr ng-repeat="x in resourses">
+							            <td>
+							            <img ng-src="{{x.img}}" style="width:90px;height="90px;">
+							            </td>
+							            <td>{{x.name}}</td>
+							            <td>{{x.operate}}</td>
+					<td>
+						<button class="btn btn-warning" ng-click="delete_reso(x.id)">删除</button>
+						 <button  class="btn btn-primary" data-toggle="modal" data-target="#reso_edit" ng-click=getre_Row(x.id)>编辑</button>
+						<button  class="btn btn-primary btn-success" data-toggle="modal" data-target="#reso_display" ng-click=datare_row(x.id)>查看</button>
+					</td>
+				</tr>
+		</tbody>
+	</table>
+						
+	
+						
+						
+						
+						
+</div>
+		<div class="modal fade" id="reso_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									
+								</h4>
+							</div>
+							<!-- <div class="modal-body">
+				                    <h4>课程课件</h4>
+				                    <input type="text" ng-model="edit_reso_file" name="course_data">                 
+				            </div>
+				            <div class="modal-body">
+				                    <h4>课程名称</h4>
+				                    <input type="text" ng-model="edit_reso_name" name="course_person">                 
+				            </div> -->
+				            
+				            
+				        <div class="modal-body">
+								<div class="upload">
+								     <input class="file_input" ng-src={{files[0].name}} onchange='angular.element(this).scope().filechanged(this)' type="file" style="margin-left: 151px;"/>
+								</div>
+			            </div>
+			            <div class="modal-body">
+			            		<label for="txt_departmentname" style="position: relative;left: 26%;">课程名称</label> 
+								<input type="text" ng-model="edit_reso_name" style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 30%;" />
+			            </div>
+				            <!--  --> 
+				            <input type="text" ng-model="h_id" style="display:none;">
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" ng-click="change_reso()" class="btn btn-primary">
+									提交更改
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+			
+		<!--//增加-->
+			<div class="modal fade" id="reso_Add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+								</h4>
+							</div>
+							
+							
+							<div class="modal-body">
+								<div class="upload">
+								     <input class="file_input" type="file" ng-src={{files[0].name}} onchange='angular.element(this).scope().filechanged(this)' ng-model="add_reso_file"  style="margin-left: 151px;"/>
+								    <!--  <input type="text" id="imgurl"> -->
+								     <!-- <p type="text" ng-model="file_name" id="file_name" ></p> -->
+								      <p id="img_url"></p>
+								</div>
+			            </div>
+			            <div class="modal-body">
+			            		<label for="txt_departmentname" style="position: relative;left: 26%;">课程名称</label> 
+								<input type="text" ng-model="add_reso_name" style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 30%;" />
+			            </div>
+							<!-- <div class="modal-body">
+				                    <h4>课程课件</h4>
+				                    <input type="text" ng-model="add_reso_file" >               
+				            </div>
+				            <div class="modal-body">
+				                    <h4>课程名称</h4>
+				                    <input type="text" ng-model="add_reso_name">                 
+				            </div> -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" ng-click="res_add()" class="btn btn-primary">
+									提交更改
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+		
+			<div class="modal fade" id="reso_display" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									
+								</h4>
+							</div>
+							<!-- <div class="modal-body">
+				                    <h4>课程课件</h4>
+				                    <input type="text" ng-model="display_reso_file" name="course_data">                 
+				            </div>
+				            <div class="modal-body">
+				                    <h4>课程名称</h4>
+				                    <input type="text" ng-model="dispaly_reso_name" name="course_person">                 
+				            </div> -->
+				         <div class="modal-body">
+								<label for="txt_departmentname" style="position: relative;left: 26%;">课程课件</label> 
+								<input type="text" ng-model="display_reso_file" style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 30%; " readonly="readonly" />
+			            </div>
+			            <div class="modal-body">
+			            		<label for="txt_departmentname" style="position: relative;left: 26%;">课程名称</label> 
+								<input type="text" ng-model="dispaly_reso_name" style="width: 33%; height: 30px; font-size: 17px; font-family: 宋体; margin-left: 30%;" readonly="readonly" />
+			            </div>
+				            
+				            
+				            
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+</div>
+<script>
+    var file_input=document.getElementsByClassName("file_input")[0];
+    var img=document.getElementById("img_url");
+//    触发事件用的是change，因为files是数组，需要添加下标
+    file_input.addEventListener("change",function(){
+    	  var obj=this;
+    })
+</script>
